@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home1/mayko324/public_html
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -R dist/. $DEPLOYPATH
