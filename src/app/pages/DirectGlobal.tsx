@@ -33,8 +33,8 @@ function LiveMetrics() {
   }, []);
 
   return (
-    <div className="flex h-full w-full flex-col gap-6">
-      <div className="grid grid-cols-3 gap-4">
+    <div className="flex w-full flex-col gap-4 sm:gap-6">
+      <div className="grid gap-3 sm:grid-cols-3 sm:gap-4">
         {[
           { label: t("dg.metrics_performance"), value: "99.8%" },
           { label: t("dg.metrics_throughput"), value: "12.4k", suffix: "req/s" },
@@ -45,14 +45,16 @@ function LiveMetrics() {
               {metric.label}
             </span>
             <div className="mt-3 flex items-end gap-2">
-              <span className="text-3xl font-medium tracking-[-0.04em] text-white">{metric.value}</span>
-              {metric.suffix ? <span className="pb-1 text-[10px] uppercase tracking-[0.2em] text-white/30">{metric.suffix}</span> : null}
+              <span className="text-2xl font-medium tracking-[-0.04em] text-white sm:text-3xl">{metric.value}</span>
+              {metric.suffix ? (
+                <span className="pb-1 text-[10px] uppercase tracking-[0.2em] text-white/30">{metric.suffix}</span>
+              ) : null}
             </div>
           </div>
         ))}
       </div>
 
-      <div className="surface-panel flex-1 rounded-[2rem] p-4 opacity-80">
+      <div className="surface-panel h-56 rounded-[2rem] p-4 opacity-80 sm:h-64">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>
             <defs>
@@ -104,12 +106,12 @@ export function DirectGlobal() {
               </div>
 
               <div className="space-y-5">
-                <h1 className="text-5xl font-medium tracking-[-0.06em] text-white md:text-7xl lg:text-[5.75rem]">
+                <h1 className="text-4xl font-medium tracking-[-0.06em] text-white sm:text-5xl md:text-7xl lg:text-[5.75rem]">
                   {t("home.dg_title")}
                   <br />
                   <span className="text-white/[0.34]">{t("home.dg_subtitle")}</span>
                 </h1>
-                <p className="max-w-2xl text-lg leading-8 text-white/[0.58] md:text-xl">
+                <p className="max-w-2xl text-base leading-7 text-white/[0.58] sm:text-lg sm:leading-8 md:text-xl">
                   {t("home.dg_description")}
                 </p>
               </div>
@@ -134,7 +136,7 @@ export function DirectGlobal() {
               className="surface-panel-strong rounded-[2.5rem] p-5 lg:p-6"
             >
               <LiveMetrics />
-              <div className="mt-4 flex items-center justify-between px-2 text-[10px] uppercase tracking-[0.22em] text-white/[0.32]">
+              <div className="mt-4 flex flex-col gap-2 px-2 text-center text-[10px] uppercase tracking-[0.22em] text-white/[0.32] sm:flex-row sm:items-center sm:justify-between sm:text-left">
                 <span>Integrated Intelligence</span>
                 <span>Network Primary</span>
               </div>
@@ -171,12 +173,12 @@ export function DirectGlobal() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
-              className="surface-panel flex gap-5 rounded-[2rem] p-6"
+              className="surface-panel flex flex-col gap-5 rounded-[2rem] p-6 sm:flex-row"
             >
               <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05]">
                 <feature.icon className="size-5 text-white/75" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <h3 className="text-xl text-white">{feature.title}</h3>
                 <p className="mt-2 text-sm leading-7 text-white/[0.56]">{feature.desc}</p>
               </div>
