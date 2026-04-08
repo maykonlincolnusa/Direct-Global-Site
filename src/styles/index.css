@@ -1,0 +1,108 @@
+@import "./fonts.css";
+@import "./tailwind.css";
+@import "./theme.css";
+
+@layer utilities {
+  .glass {
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 24px 80px rgba(0, 0, 0, 0.28);
+  }
+
+  .surface-panel {
+    @apply border border-white/10 bg-white/[0.04];
+    backdrop-filter: blur(24px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 24px 80px rgba(0, 0, 0, 0.3);
+  }
+
+  .surface-panel-strong {
+    @apply border border-white/[0.12] bg-white/[0.06];
+    backdrop-filter: blur(30px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 30px 100px rgba(0, 0, 0, 0.36);
+  }
+
+  .apple-nav-shell {
+    @apply rounded-[2rem] border border-white/10 bg-black/30;
+    backdrop-filter: blur(28px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 18px 60px rgba(0, 0, 0, 0.28);
+  }
+
+  .apple-brand-mark {
+    @apply size-3 rounded-full;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.4) 40%, rgba(125, 169, 255, 0.25) 100%);
+    box-shadow:
+      0 0 0 6px rgba(255, 255, 255, 0.04),
+      0 0 40px rgba(125, 169, 255, 0.28);
+  }
+
+  .apple-language-trigger {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] uppercase tracking-[0.22em] text-white/60 hover:bg-white/10 hover:text-white;
+  }
+
+  .page-ambient {
+    @apply pointer-events-none fixed inset-0 overflow-hidden;
+  }
+
+  .page-ambient::before,
+  .page-ambient::after {
+    content: "";
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(100px);
+    opacity: 0.45;
+  }
+
+  .page-ambient::before {
+    width: 34rem;
+    height: 34rem;
+    top: -10rem;
+    right: -8rem;
+    background: rgba(123, 170, 255, 0.24);
+  }
+
+  .page-ambient::after {
+    width: 26rem;
+    height: 26rem;
+    bottom: 8rem;
+    left: -8rem;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-shell {
+    @apply relative overflow-hidden rounded-[2.75rem] border border-white/10 bg-white/[0.04];
+    backdrop-filter: blur(24px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 24px 80px rgba(0, 0, 0, 0.3);
+  }
+
+  .section-kicker {
+    @apply text-[11px] font-semibold uppercase tracking-[0.24em] text-white/55;
+  }
+
+  .section-copy {
+    @apply text-base leading-7 text-white/[0.58] md:text-lg;
+  }
+
+  .section-heading {
+    @apply text-4xl font-medium tracking-[-0.04em] text-white md:text-6xl;
+  }
+
+  .input-shell {
+    @apply w-full rounded-[1.35rem] border border-white/[0.08] bg-white/[0.05] px-5 py-4 text-white placeholder:text-white/[0.2] focus:border-white/[0.2] focus:outline-none focus:ring-2 focus:ring-white/[0.1];
+  }
+
+  .footer-link {
+    @apply text-sm font-light text-muted-foreground transition-colors hover:text-foreground;
+  }
+}

@@ -1,0 +1,11 @@
+* {
+  font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+code,
+kbd,
+samp,
+pre,
+.font-mono {
+  font-family: "SF Mono", "Roboto Mono", "IBM Plex Mono", Consolas, monospace;
+}
