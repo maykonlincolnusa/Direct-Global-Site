@@ -31,7 +31,7 @@
   },
   "footer": {
     "rights": "© 2026 Maykon Lincoln. All rights reserved.",
-    "global_ambition": "Global Ambiton. Local Operation."
+    "global_ambition": "Global Ambition. Local Operation."
   },
   "home": {
     "protocol_title": "The Implementation Protocol.",
@@ -47,12 +47,15 @@
     "cta_ready": "Ready to implement the next level?",
     "cta_desc": "Schedule an executive session to analyze your business infrastructure.",
     "cta_button": "Request Diagnosis",
-    "whitestone_title": "Whitestone Dallas Core.",
-    "whitestone_desc": "High-performance system architecture for Whitestone Concrete in Dallas-Fort Worth. A mission-critical engine orchestrating industrial workflows and North American operations.",
-    "whitestone_impact": "Dallas-Fort Worth Commercial Powerhouse",
-    "whitestone_location": "Location: Dallas, Texas",
-    "whitestone_cta": "Inspect on GitHub",
-    "whitestone_roi_label": "Impact",
+    "whitestone_title": "Whitestone Concrete.",
+    "whitestone_desc": "Case developed for Whitestone Concrete, a company based in Dallas-Fort Worth. High-performance systems architecture for an industrial operation in the United States.",
+    "whitestone_impact": "Active operation in Dallas-Fort Worth",
+    "whitestone_location": "Dallas, Texas",
+    "whitestone_cta": "View case on GitHub",
+    "whitestone_roi_label": "Market",
+    "whitestone_case_badge": "Real case developed by Maykon Lincoln",
+    "whitestone_company_label": "Company",
+    "whitestone_company_value": "Whitestone Concrete",
     "dg_badge": "The Platform",
     "dg_title": "Direct Global.",
     "dg_subtitle": "The Scale Engine.",

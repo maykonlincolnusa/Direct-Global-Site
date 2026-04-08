@@ -171,9 +171,14 @@ export function Home() {
 
           <div className="relative z-10 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/55">
-                <span className="size-2 rounded-full bg-[#7ca9ff]" />
-                {t("home.whitestone_location")}
+              <div className="flex flex-wrap gap-3">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/55">
+                  <span className="size-2 rounded-full bg-[#7ca9ff]" />
+                  {t("home.whitestone_case_badge")}
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/55">
+                  {t("home.whitestone_location")}
+                </div>
               </div>
 
               <h3 className="text-4xl font-medium tracking-[-0.05em] text-white md:text-6xl">
@@ -182,16 +187,22 @@ export function Home() {
 
               <p className="section-copy max-w-xl">{t("home.whitestone_desc")}</p>
 
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
                 <Button size="lg" className="h-14 px-8" asChild>
                   <a href="https://github.com/maykonlincolnusa" target="_blank" rel="noopener noreferrer">
                     {t("home.whitestone_cta")}
                     <ArrowRight className="size-4" />
                   </a>
                 </Button>
-                <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] px-5 py-4">
-                  <div className="text-[11px] uppercase tracking-[0.22em] text-white/[0.38]">{t("home.whitestone_roi_label")}</div>
-                  <div className="mt-2 text-sm text-white/[0.72]">{t("home.whitestone_impact")}</div>
+                <div className="flex flex-col gap-4 sm:flex-row">
+                  <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] px-5 py-4">
+                    <div className="text-[11px] uppercase tracking-[0.22em] text-white/[0.38]">{t("home.whitestone_company_label")}</div>
+                    <div className="mt-2 text-sm text-white/[0.72]">{t("home.whitestone_company_value")}</div>
+                  </div>
+                  <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] px-5 py-4">
+                    <div className="text-[11px] uppercase tracking-[0.22em] text-white/[0.38]">{t("home.whitestone_roi_label")}</div>
+                    <div className="mt-2 text-sm text-white/[0.72]">{t("home.whitestone_impact")}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -199,7 +210,7 @@ export function Home() {
             <div className="surface-panel relative aspect-[4/5] overflow-hidden rounded-[2.5rem]">
               <ImageWithFallback
                 src="/whitestone_dallas.png"
-                alt="Whitestone Concrete Dallas Architecture"
+                alt="Whitestone Concrete case study"
                 className="h-full w-full object-cover opacity-72 grayscale transition-transform duration-1000 hover:scale-105 hover:grayscale-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#070b15]/78 via-transparent to-transparent" />

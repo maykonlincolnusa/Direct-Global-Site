@@ -115,7 +115,7 @@ export function About() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/40 via-transparent to-red-900/10 z-10" />
                 <ImageWithFallback
                    src="/whitestone_dallas.png"
-                   alt="Global Infrastructure"
+                   alt="Whitestone Concrete case study"
                    className="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-1000"
                 />
                 <div className="absolute top-10 left-10 glass p-6 rounded-2xl border border-white/10">
@@ -123,7 +123,7 @@ export function About() {
                       <div className="size-2 bg-red-600 rounded-full shadow-[0_0_8px_rgba(220,38,38,0.6)]" />
                       <span className="text-[10px] font-bold uppercase tracking-widest text-white/60">System Online</span>
                    </div>
-                   <span className="text-xl font-medium text-white">Whitestone USA</span>
+                   <span className="text-xl font-medium text-white">Whitestone Concrete</span>
                 </div>
              </motion.div>
 
@@ -136,20 +136,21 @@ export function About() {
                 <div className="size-16 rounded-3xl glass flex items-center justify-center border border-red-900/30">
                    <Globe2 className="size-8 text-red-600" />
                 </div>
+                <div className="section-kicker">{t('home.whitestone_case_badge')}</div>
                 <h3 className="text-4xl lg:text-6xl font-medium tracking-tight text-white">
                    {t('home.whitestone_title')}
                 </h3>
                 <p className="text-xl text-white/50 font-light leading-relaxed max-w-lg">
                    {t('home.whitestone_desc')}
                 </p>
-                <div className="flex gap-4 pt-4">
+                <div className="flex flex-col gap-4 pt-4 sm:flex-row">
                    <div className="px-4 py-2 glass rounded-xl border border-white/5">
                       <span className="block text-[10px] uppercase tracking-widest text-white/30 mb-1">{t('home.whitestone_roi_label')}</span>
                       <span className="text-sm font-mono text-white/80">{t('home.whitestone_impact')}</span>
                    </div>
                    <div className="px-4 py-2 glass rounded-xl border border-white/5">
-                      <span className="block text-[10px] uppercase tracking-widest text-white/30 mb-1">Architecture</span>
-                      <span className="text-sm font-mono text-white/80">Distributed</span>
+                      <span className="block text-[10px] uppercase tracking-widest text-white/30 mb-1">{t('home.whitestone_company_label')}</span>
+                      <span className="text-sm font-mono text-white/80">{t('home.whitestone_company_value')}</span>
                    </div>
                 </div>
              </motion.div>
