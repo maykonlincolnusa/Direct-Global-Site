@@ -1,0 +1,1054 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Agentes Inteligentes Customizado | Maykon Lincoln</title>
+    <meta
+      name="description"
+      content="Desenvolvimento completo de sistema de agentes inteligentes customizado em 8 semanas, com múltiplos agentes, pipelines de dados, integração e deploy."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Sistema de Agentes Inteligentes Customizado" />
+    <meta
+      property="og:description"
+      content="Projeto técnico de 8 semanas para construir arquitetura multi-agente escalável e integrada ao negócio."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://maykonlincoln.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0d1318;
+        --bg-soft: #171e24;
+        --surface: #1a242d;
+        --surface-alt: #202e3a;
+        --line: #334858;
+        --text: #f1f5f9;
+        --muted: #b3c0cb;
+        --primary: #ff8f3f;
+        --primary-strong: #ffb347;
+        --blue: #46b5ff;
+        --ok: #9aedcf;
+        --danger: #ff8e8e;
+        --radius: 18px;
+        --shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        font-family: "Source Sans 3", sans-serif;
+        background: radial-gradient(circle at 88% -10%, rgba(255, 143, 63, 0.24), transparent 42%),
+          radial-gradient(circle at 10% 0%, rgba(70, 181, 255, 0.2), transparent 36%), var(--bg);
+      }
+
+      .container {
+        width: min(1140px, 92vw);
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 74px 0;
+      }
+
+      .section-title {
+        margin: 0 0 10px;
+        font: 700 clamp(1.55rem, 4vw, 2.35rem) / 1.2 "Outfit", sans-serif;
+        letter-spacing: -0.01em;
+      }
+
+      .section-subtitle {
+        margin: 0;
+        color: var(--muted);
+        max-width: 760px;
+      }
+
+      .top {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        background: rgba(13, 19, 24, 0.82);
+      }
+
+      .top-inner {
+        min-height: 74px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .logo {
+        display: grid;
+        gap: 1px;
+      }
+
+      .logo b {
+        font-family: "Outfit", sans-serif;
+        font-size: 1rem;
+      }
+
+      .logo span {
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .btn {
+        border: 0;
+        border-radius: 12px;
+        text-decoration: none;
+        padding: 12px 18px;
+        font-weight: 700;
+        font-size: 0.93rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-main {
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: #311200;
+        box-shadow: 0 10px 28px rgba(255, 143, 63, 0.3);
+      }
+
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--text);
+      }
+
+      .hero {
+        padding: 66px 0 38px;
+      }
+
+      .hero-layout {
+        display: grid;
+        gap: 24px;
+      }
+
+      .hero-main,
+      .hero-side {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-main {
+        background: linear-gradient(160deg, rgba(32, 46, 58, 0.9), rgba(17, 25, 32, 0.95));
+        padding: 30px;
+      }
+
+      .hero-side {
+        background: linear-gradient(180deg, rgba(255, 143, 63, 0.14), rgba(255, 143, 63, 0.05));
+        padding: 24px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        font-size: 0.76rem;
+        color: #ffd5b8;
+      }
+
+      .tag::before {
+        content: "";
+        width: 22px;
+        height: 2px;
+        background: var(--primary);
+      }
+
+      #headline {
+        margin: 14px 0 12px;
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(1.75rem, 5vw, 3.05rem);
+        line-height: 1.12;
+        letter-spacing: -0.018em;
+      }
+
+      .hero-main p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 62ch;
+      }
+
+      .hero-features {
+        margin: 20px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+
+      .hero-features li {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 9px 11px;
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .headline-controls {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .variant-btn {
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 999px;
+        padding: 8px 12px;
+        background: rgba(255, 255, 255, 0.03);
+        color: #d9e5ef;
+        font: 600 0.81rem "Source Sans 3", sans-serif;
+        cursor: pointer;
+      }
+
+      .variant-btn.active {
+        border-color: transparent;
+        color: #321700;
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      }
+
+      .hero-actions {
+        margin-top: 22px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .microcopy {
+        margin-top: 10px;
+        color: #ffd9c2;
+        font-size: 0.85rem;
+      }
+
+      .hero-side h3 {
+        margin: 0 0 8px;
+        font-family: "Outfit", sans-serif;
+      }
+
+      .price {
+        margin: 4px 0;
+        font-size: clamp(1.85rem, 4.6vw, 2.6rem);
+        font-weight: 800;
+      }
+
+      .timeline {
+        margin-top: 14px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .timeline div {
+        border-radius: 10px;
+        padding: 10px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(0, 0, 0, 0.18);
+      }
+
+      .cards {
+        margin-top: 24px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .card h3 {
+        margin: 0 0 8px;
+        font-family: "Outfit", sans-serif;
+        font-size: 1.06rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .project {
+        display: grid;
+        gap: 10px;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .tag-pill {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(70, 181, 255, 0.5);
+        background: rgba(70, 181, 255, 0.12);
+        color: #acdfff;
+      }
+
+      a.link {
+        color: #7ec8ff;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      a.link:hover {
+        text-decoration: underline;
+      }
+
+      .list {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .list-item {
+        border-left: 3px solid var(--primary);
+        border-radius: 10px;
+        padding: 11px 13px;
+        background: rgba(255, 143, 63, 0.08);
+      }
+
+      .authority {
+        margin-top: 20px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        padding: 22px;
+        background: linear-gradient(155deg, rgba(32, 46, 58, 0.92), rgba(20, 28, 35, 0.98));
+      }
+
+      .cta {
+        margin-top: 20px;
+        display: grid;
+        gap: 20px;
+      }
+
+      form {
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        background: rgba(0, 0, 0, 0.22);
+        padding: 18px;
+      }
+
+      .field {
+        margin-bottom: 12px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid #3e5567;
+        background: #151f27;
+        color: var(--text);
+        padding: 11px 12px;
+        font: 400 0.95rem "Source Sans 3", sans-serif;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: 2px solid rgba(255, 143, 63, 0.5);
+        border-color: rgba(255, 143, 63, 0.8);
+      }
+
+      .form-note {
+        margin-top: 9px;
+        color: #f4cab0;
+        font-size: 0.84rem;
+      }
+
+      .feedback {
+        margin-top: 10px;
+        font-weight: 700;
+        font-size: 0.92rem;
+      }
+
+      .feedback.ok {
+        color: var(--ok);
+      }
+
+      .feedback.error {
+        color: var(--danger);
+      }
+
+      .faq {
+        margin-top: 20px;
+        display: grid;
+        gap: 12px;
+      }
+
+      details {
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      summary {
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      details p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+
+      footer {
+        padding: 24px 0 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (min-width: 900px) {
+        .hero-layout {
+          grid-template-columns: 1.15fr 0.85fr;
+        }
+
+        .cards {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .cta {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+    <style>
+      :root {
+        --site-bg: #06020c;
+        --site-text: #f7f4ff;
+        --site-muted: rgba(247, 244, 255, 0.62);
+        --site-border: rgba(255, 255, 255, 0.1);
+        --site-panel: rgba(255, 255, 255, 0.045);
+        --site-panel-strong: rgba(255, 255, 255, 0.07);
+        --site-glow: rgba(129, 79, 255, 0.24);
+      }
+
+      body {
+        font-family: "SF Pro Display", "SF Pro Text", "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at top right, rgba(125, 73, 255, 0.24), transparent 34%),
+          radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.06), transparent 16%),
+          radial-gradient(circle at 80% 82%, rgba(115, 23, 124, 0.18), transparent 24%),
+          linear-gradient(180deg, #12081a 0%, #09040f 48%, #05020a 100%);
+        background-attachment: fixed;
+        color: var(--site-text);
+      }
+
+      .top {
+        background: rgba(6, 2, 12, 0.62);
+        border-bottom: 1px solid var(--site-border);
+      }
+
+      .top-inner {
+        min-height: 78px;
+      }
+
+      .logo b,
+      .section-title,
+      #headline,
+      .hero-side h3,
+      .card h3 {
+        font-family: inherit;
+        letter-spacing: 0;
+      }
+
+      .logo span,
+      .section-subtitle,
+      .hero-main p,
+      .card p,
+      details p,
+      .foot,
+      .microcopy {
+        color: var(--site-muted);
+      }
+
+      .btn {
+        min-height: 48px;
+        border-radius: 999px;
+        gap: 8px;
+      }
+
+      .btn-main {
+        background: var(--site-text);
+        color: #09040f;
+        box-shadow: 0 18px 44px rgba(247, 244, 255, 0.18);
+      }
+
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--site-border);
+        color: var(--site-text);
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 34px 0 46px;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(9, 4, 15, 0.2), rgba(9, 4, 15, 0.9)),
+          radial-gradient(circle at 74% 18%, rgba(129, 79, 255, 0.16), transparent 34%);
+        pointer-events: none;
+      }
+
+      .hero-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.16;
+        filter: grayscale(1);
+      }
+
+      .hero-layout,
+      .hero .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-main,
+      .hero-side,
+      .card,
+      .authority,
+      form,
+      details,
+      .list-item {
+        border: 1px solid var(--site-border);
+        background: var(--site-panel);
+        backdrop-filter: blur(24px);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 24px 80px rgba(0, 0, 0, 0.32),
+          0 20px 60px rgba(62, 21, 90, 0.16);
+      }
+
+      .hero-main {
+        border-radius: 44px;
+        padding: clamp(26px, 4vw, 48px);
+        background: rgba(255, 255, 255, 0.055);
+      }
+
+      .hero-side {
+        border-radius: 36px;
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .tag {
+        color: rgba(247, 244, 255, 0.68);
+      }
+
+      .tag::before {
+        background: rgba(247, 244, 255, 0.7);
+      }
+
+      #headline {
+        max-width: 960px;
+        font-size: clamp(2.55rem, 7vw, 5.9rem);
+        font-weight: 500;
+        line-height: 0.98;
+      }
+
+      .hero-main p {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        line-height: 1.65;
+      }
+
+      .hero-features li,
+      .timeline div,
+      .variant-btn {
+        background: rgba(255, 255, 255, 0.045);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 18px;
+      }
+
+      .variant-btn.active {
+        background: rgba(247, 244, 255, 0.94);
+        color: #09040f;
+      }
+
+      .price {
+        color: var(--site-text);
+        font-weight: 500;
+      }
+
+      .section {
+        padding: 84px 0;
+      }
+
+      .cards,
+      .list,
+      .faq {
+        gap: 16px;
+      }
+
+      .card,
+      .authority,
+      form {
+        border-radius: 32px;
+      }
+
+      .tag-pill {
+        border-color: rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(247, 244, 255, 0.72);
+      }
+
+      a.link {
+        color: #f7f4ff;
+      }
+
+      input,
+      textarea {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.055);
+        color: var(--site-text);
+        border-radius: 22px;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: 2px solid rgba(247, 244, 255, 0.12);
+        border-color: rgba(247, 244, 255, 0.24);
+      }
+
+      .feedback.ok {
+        color: #d8c7ff;
+      }
+
+      footer {
+        border-top-color: var(--site-border);
+      }
+
+      @media (max-width: 640px) {
+        .hero-main {
+          border-radius: 30px;
+        }
+
+        .hero-side,
+        .card,
+        .authority,
+        form {
+          border-radius: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top">
+      <div class="container top-inner">
+        <div class="logo">
+          <b>Maykon Lincoln</b>
+          <span>Arquitetura de IA para operações críticas</span>
+        </div>
+        <a class="btn btn-ghost" href="https://maykonlincoln.com" target="_blank" rel="noopener noreferrer">Site oficial</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <video class="hero-video" autoplay loop muted playsinline aria-hidden="true">
+          <source src="/0_Tech_Electronics_1920x1080.mp4" type="video/mp4" />
+        </video>
+        <div class="container hero-layout">
+          <article class="hero-main">
+            <span class="tag">Oferta Maior • 8 semanas</span>
+            <h1 id="headline">Construa um sistema de agentes inteligentes que opera com escala, previsibilidade e controle.</h1>
+            <p>
+              Desenvolvimento completo de arquitetura multi-agente customizada para seu contexto: dados, processos,
+              integrações e deploy. Projeto técnico para empresas que precisam de automação robusta e mensurável.
+            </p>
+            <ul class="hero-features">
+              <li><strong>Escopo avançado:</strong> múltiplos agentes coordenados com função operacional definida.</li>
+              <li><strong>Base de dados estruturada:</strong> pipelines para alimentar decisões de forma contínua.</li>
+              <li><strong>Entrega executável:</strong> integração com sistemas existentes e estratégia de implantação.</li>
+            </ul>
+            <div class="headline-controls" id="headlineControls"></div>
+            <div class="hero-actions">
+              <a class="btn btn-main" href="#formulario">Quero meu sistema customizado</a>
+              <a class="btn btn-ghost" href="#projetos">Ver arquiteturas</a>
+            </div>
+            <p class="microcopy">Projeto pago, sem compromisso recorrente.</p>
+          </article>
+          <aside class="hero-side">
+            <h3>Sistema de Agentes Inteligentes Customizado</h3>
+            <p class="price">R$ 17.900</p>
+            <p>Duração: <strong>8 semanas</strong></p>
+            <p>Escopo: múltiplos agentes + pipelines de dados + integração e deploy.</p>
+            <div class="timeline">
+              <div><strong>Semanas 1-2:</strong> arquitetura, requisitos e desenho técnico</div>
+              <div><strong>Semanas 3-5:</strong> implementação de agentes e orquestração</div>
+              <div><strong>Semanas 6-7:</strong> pipelines, integração e validação</div>
+              <div><strong>Semana 8:</strong> deploy assistido e transferência técnica</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="dores">
+        <div class="container">
+          <h2 class="section-title">Quando o custo oculto da ineficiência vira bloqueio estratégico</h2>
+          <p class="section-subtitle">
+            Empresas com operação complexa acumulam perda por lentidão de decisão, retrabalho técnico e automação
+            limitada a tarefas pontuais.
+          </p>
+          <div class="cards">
+            <article class="card">
+              <h3>Processos manuais em cadeia</h3>
+              <p>Fluxos críticos dependem de intervenção humana constante, elevando custo e erro operacional.</p>
+            </article>
+            <article class="card">
+              <h3>Baixa previsibilidade</h3>
+              <p>Sem antecipação de risco, a operação reage tarde e compromete prazo, margem e reputação.</p>
+            </article>
+            <article class="card">
+              <h3>Dados pouco acionáveis</h3>
+              <p>Informação existe, mas não está organizada para orientar respostas automáticas em tempo útil.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="diferencial">
+        <div class="container">
+          <h2 class="section-title">Diferencial técnico: engenharia aplicada para automação real</h2>
+          <p class="section-subtitle">
+            A arquitetura é construída para operar em ambiente empresarial, com coordenação entre agentes, integração com
+            dados e evolução controlada.
+          </p>
+          <div class="cards">
+            <article class="card">
+              <h3>Engenharia de dados aplicada</h3>
+              <p>
+                Pipelines para coleta, transformação e disponibilização de contexto confiável para agentes e equipes.
+              </p>
+            </article>
+            <article class="card">
+              <h3>IA multi-agente em arquitetura distribuída</h3>
+              <p>
+                Agentes especializados colaboram por responsabilidades (análise, decisão, prevenção, execução).
+              </p>
+            </article>
+            <article class="card">
+              <h3>Otimização inspirada em física</h3>
+              <p>
+                Modelagem de cenários e estabilidade operacional usando princípios de simulação para reduzir risco antes de
+                escalar.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projetos">
+        <div class="container">
+          <h2 class="section-title">Exemplos de arquiteturas que desenvolvo</h2>
+          <p class="section-subtitle">
+            Projetos de referência para demonstrar capacidade de engenharia e execução. Não representam garantia de mesmo
+            resultado em qualquer contexto.
+          </p>
+          <div class="cards">
+            <article class="card project">
+              <h3>AXIOM</h3>
+              <div class="project-tags">
+                <span class="tag-pill">Plataforma modular</span>
+                <span class="tag-pill">Multi-setor</span>
+              </div>
+              <p>
+                Estrutura multi-agente para financeiro, imobiliário e jurídico, com camada compartilhada de raciocínio
+                avançado e base escalável.
+              </p>
+              <a class="link" href="https://github.com/maykonlincolnusa/AXIOM" target="_blank" rel="noopener noreferrer"
+                >Ver repositório</a
+              >
+            </article>
+            <article class="card project">
+              <h3>Fraud Master Bank (FMB)</h3>
+              <div class="project-tags">
+                <span class="tag-pill">Ambiente financeiro</span>
+                <span class="tag-pill">Sistema antifraude</span>
+              </div>
+              <p>
+                Sistema inteligente para identificar padrões suspeitos, analisar comportamento e automatizar prevenção de
+                fraudes.
+              </p>
+              <a
+                class="link"
+                href="https://github.com/maykonlincolnusa/Fraud-Master-Bank-FMB-system-anti-fraud"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Ver repositório</a
+              >
+            </article>
+            <article class="card project">
+              <h3>Capacidade demonstrada</h3>
+              <div class="project-tags">
+                <span class="tag-pill">Arquitetura distribuída</span>
+                <span class="tag-pill">Prova técnica</span>
+              </div>
+              <p>
+                Aplicação prática de engenharia avançada para cenários críticos de decisão e automação operacional.
+              </p>
+              <a class="link" href="https://maykonlincoln.com" target="_blank" rel="noopener noreferrer">Ver perfil técnico</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="entregas">
+        <div class="container">
+          <h2 class="section-title">O que você recebe</h2>
+          <p class="section-subtitle">Escopo técnico completo para sair da ideia e chegar ao sistema funcional.</p>
+          <div class="list">
+            <div class="list-item">Arquitetura técnica completa de agentes, dados, integrações e governança.</div>
+            <div class="list-item">Implementação de múltiplos agentes com orquestração e critérios claros de atuação.</div>
+            <div class="list-item">Pipelines de dados para alimentar decisões e ações automáticas com consistência.</div>
+            <div class="list-item">Integração com APIs, bancos, filas ou sistemas internos existentes.</div>
+            <div class="list-item">Deploy orientado com validação funcional, monitoramento inicial e documentação.</div>
+            <div class="list-item">Plano de evolução pós-entrega com prioridades técnicas e métricas de desempenho.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="resultados">
+        <div class="container">
+          <h2 class="section-title">Benefícios de negócio esperados</h2>
+          <p class="section-subtitle">Foco em eficiência operacional, previsibilidade e decisões com impacto financeiro.</p>
+          <div class="list">
+            <div class="list-item"><strong>Redução de custo operacional:</strong> menos atividade manual e menos retrabalho.</div>
+            <div class="list-item"><strong>Aumento de eficiência:</strong> agentes executando fluxos com coordenação contínua.</div>
+            <div class="list-item"><strong>Automação profunda:</strong> não apenas tarefa isolada, mas processos completos.</div>
+            <div class="list-item"><strong>Decisão melhor:</strong> dados estruturados, sinais de risco e recomendações acionáveis.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="autoridade">
+        <div class="container">
+          <h2 class="section-title">Autoridade técnica</h2>
+          <div class="authority">
+            <p>
+              Maykon Lincoln combina <strong>engenharia de dados, desenvolvimento de software e IA avançada</strong> para
+              construir sistemas de decisão e automação em contextos de alta complexidade.
+            </p>
+            <p>
+              Formação contínua com base em cursos do <strong>MIT</strong> e experiência prática na implementação de
+              arquiteturas multi-agente, sistemas distribuídos e simulação de cenários operacionais.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="formulario">
+        <div class="container">
+          <h2 class="section-title">Inicie seu projeto customizado</h2>
+          <p class="section-subtitle">
+            Envie seu contexto e receba uma avaliação inicial sobre arquitetura, viabilidade e próximos passos.
+          </p>
+          <div class="cta">
+            <article class="card">
+              <h3>Resumo da oferta</h3>
+              <ul>
+                <li>Projeto de 8 semanas</li>
+                <li>Investimento único de R$ 17.900</li>
+                <li>Sem compromisso recorrente</li>
+                <li>Escopo completo: agentes, dados, integração e deploy</li>
+              </ul>
+            </article>
+            <form id="leadForm" action="https://formsubmit.co/maykon_zero@hotmail.com" method="POST" novalidate>
+              <input type="hidden" name="_subject" value="Novo lead - Sistema de Agentes Inteligentes Customizado" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="oferta" value="Sistema de Agentes Inteligentes Customizado" />
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display: none" />
+              <div class="field">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" required />
+              </div>
+              <div class="field">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" name="empresa" required />
+              </div>
+              <div class="field">
+                <label for="whatsapp">WhatsApp</label>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" required />
+              </div>
+              <div class="field">
+                <label for="desafio">Descrição do desafio</label>
+                <textarea id="desafio" name="desafio" rows="4" required></textarea>
+              </div>
+              <button class="btn btn-main" type="submit">Quero avançar com o sistema completo</button>
+              <p class="form-note">Projeto pago, sem compromisso recorrente.</p>
+              <div id="feedback" class="feedback" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <h2 class="section-title">FAQ</h2>
+          <div class="faq">
+            <details>
+              <summary>Funciona para minha empresa?</summary>
+              <p>
+                O projeto atende empresas com processos críticos, dados disponíveis e necessidade de automação robusta. O
+                escopo é customizado à sua operação.
+              </p>
+            </details>
+            <details>
+              <summary>Quanto tempo leva?</summary>
+              <p>O cronograma padrão é de 8 semanas, com entregas progressivas e validação por etapa.</p>
+            </details>
+            <details>
+              <summary>Preciso de equipe técnica?</summary>
+              <p>
+                Não é obrigatório, mas acelera integrações. O projeto também contempla orientação para liderança e
+                stakeholders de negócio.
+              </p>
+            </details>
+            <details>
+              <summary>Isso já vem pronto?</summary>
+              <p>
+                Não é pacote genérico. É um sistema customizado conforme processo, dados e requisitos da sua empresa.
+              </p>
+            </details>
+            <details>
+              <summary>É pago mesmo?</summary>
+              <p>
+                Sim. É um projeto técnico fechado de R$ 17.900, sem mensalidade obrigatória ou compromisso recorrente.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container foot">
+        <span>© 2026 Maykon Lincoln</span>
+        <a class="link" href="https://maykonlincoln.com" target="_blank" rel="noopener noreferrer">maykonlincoln.com</a>
+      </div>
+    </footer>
+
+    <script>
+      const headlines = [
+        "Construa um sistema de agentes inteligentes que opera com escala, previsibilidade e controle.",
+        "Transforme processos críticos em fluxos autônomos orientados por dados e decisão técnica.",
+        "Automação empresarial de alto impacto: múltiplos agentes, integração real e deploy executável.",
+        "Substitua retrabalho por inteligência operacional contínua em 8 semanas de implementação."
+      ];
+
+      const headlineEl = document.getElementById("headline");
+      const controls = document.getElementById("headlineControls");
+      let active = 0;
+
+      function buildControls() {
+        headlines.forEach((_, i) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = `variant-btn ${i === 0 ? "active" : ""}`;
+          button.textContent = `Headline ${i + 1}`;
+          button.addEventListener("click", () => setHeadline(i));
+          controls.appendChild(button);
+        });
+      }
+
+      function setHeadline(index) {
+        active = index;
+        headlineEl.textContent = headlines[index];
+        document.querySelectorAll(".variant-btn").forEach((btn, i) => {
+          btn.classList.toggle("active", i === index);
+        });
+      }
+
+      buildControls();
+
+      setInterval(() => {
+        setHeadline((active + 1) % headlines.length);
+      }, 6200);
+
+      const form = document.getElementById("leadForm");
+      const feedback = document.getElementById("feedback");
+
+      function digits(value) {
+        return value.replace(/\D/g, "");
+      }
+
+      form.addEventListener("submit", (event) => {
+        const nome = document.getElementById("nome").value.trim();
+        const empresa = document.getElementById("empresa").value.trim();
+        const whatsapp = document.getElementById("whatsapp").value.trim();
+        const desafio = document.getElementById("desafio").value.trim();
+
+        if (!nome || !empresa || !whatsapp || !desafio) {
+          event.preventDefault();
+          feedback.className = "feedback error";
+          feedback.textContent = "Preencha todos os campos para enviar a solicitação.";
+          return;
+        }
+
+        if (digits(whatsapp).length < 10) {
+          event.preventDefault();
+          feedback.className = "feedback error";
+          feedback.textContent = "Informe um WhatsApp válido com DDD.";
+          return;
+        }
+
+        feedback.className = "feedback";
+        feedback.textContent = "Enviando sua solicitação...";
+      });
+    </script>
+  </body>
+</html>

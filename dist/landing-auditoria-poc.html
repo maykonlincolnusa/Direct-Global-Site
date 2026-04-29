@@ -1,0 +1,1059 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auditoria Técnica + Prova de Conceito com Agentes de IA | Maykon Lincoln</title>
+    <meta
+      name="description"
+      content="Auditoria técnica em 4 semanas com prova de conceito funcional de agente de IA. Projeto pago, sem compromisso recorrente."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Auditoria Técnica + Prova de Conceito com Agentes de IA" />
+    <meta
+      property="og:description"
+      content="Diagnóstico técnico e construção de 1 agente funcional para gerar eficiência operacional."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://maykonlincoln.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #061419;
+        --bg-soft: #0b2128;
+        --surface: #102c35;
+        --surface-alt: #153744;
+        --line: #2a4d58;
+        --text: #e9f4f6;
+        --muted: #9eb7bd;
+        --primary: #00c18c;
+        --primary-strong: #0ce6a7;
+        --warn: #ffd166;
+        --danger: #ff7d63;
+        --radius: 18px;
+        --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", sans-serif;
+        background: radial-gradient(circle at 10% 0%, #0f2f3a 0, var(--bg) 40%),
+          radial-gradient(circle at 90% 10%, #0d3843 0, transparent 30%), var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: min(1120px, 92vw);
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .section-title {
+        margin: 0 0 10px;
+        font-family: "Sora", sans-serif;
+        font-size: clamp(1.5rem, 4.2vw, 2.3rem);
+        line-height: 1.2;
+      }
+
+      .section-lead {
+        margin: 0;
+        color: var(--muted);
+        max-width: 760px;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+        background: rgba(6, 20, 25, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 20;
+      }
+
+      .topbar-inner {
+        min-height: 74px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand {
+        display: grid;
+        gap: 2px;
+      }
+
+      .brand strong {
+        font-family: "Sora", sans-serif;
+        font-size: 1rem;
+      }
+
+      .brand span {
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .btn {
+        border: 0;
+        border-radius: 12px;
+        padding: 13px 20px;
+        font: 600 0.95rem "IBM Plex Sans", sans-serif;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: #022a1f;
+        box-shadow: 0 8px 24px rgba(0, 193, 140, 0.28);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+
+      .hero {
+        padding: 66px 0 36px;
+      }
+
+      .hero-grid {
+        display: grid;
+        gap: 28px;
+      }
+
+      .hero-card {
+        background: linear-gradient(165deg, rgba(16, 44, 53, 0.85), rgba(8, 26, 32, 0.95));
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        color: #b8d1d7;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 24px;
+        height: 2px;
+        background: var(--primary);
+      }
+
+      #headline {
+        margin: 14px 0 14px;
+        font-family: "Sora", sans-serif;
+        font-size: clamp(1.7rem, 5vw, 3rem);
+        line-height: 1.15;
+        letter-spacing: -0.015em;
+      }
+
+      .hero-sub {
+        color: var(--muted);
+        max-width: 62ch;
+      }
+
+      .hero-points {
+        margin: 20px 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+
+      .hero-points li {
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        padding: 9px 12px;
+      }
+
+      .headline-switcher {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .variant-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #d5e6ea;
+        border-radius: 999px;
+        padding: 8px 12px;
+        font: 500 0.83rem "IBM Plex Sans", sans-serif;
+        cursor: pointer;
+      }
+
+      .variant-btn.active {
+        border-color: transparent;
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: #03261d;
+      }
+
+      .hero-actions {
+        margin-top: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .microcopy {
+        margin-top: 10px;
+        font-size: 0.86rem;
+        color: #bcd3d8;
+      }
+
+      .offer-box {
+        background: linear-gradient(180deg, rgba(0, 193, 140, 0.14), rgba(0, 193, 140, 0.05));
+        border: 1px solid rgba(0, 193, 140, 0.45);
+        border-radius: 20px;
+        padding: 22px;
+      }
+
+      .offer-box h3 {
+        margin: 0 0 6px;
+        font-family: "Sora", sans-serif;
+      }
+
+      .price {
+        margin: 6px 0;
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        font-weight: 700;
+      }
+
+      .kpis {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .kpi {
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .kpi strong {
+        font-family: "Sora", sans-serif;
+        display: block;
+        font-size: 1.1rem;
+      }
+
+      .grid-3 {
+        margin-top: 24px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 20px;
+      }
+
+      .card h3 {
+        margin: 0 0 8px;
+        font-family: "Sora", sans-serif;
+        font-size: 1.05rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .card ul {
+        margin: 12px 0 0;
+        padding-left: 18px;
+      }
+
+      .project-card {
+        display: grid;
+        gap: 12px;
+      }
+
+      .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .pill {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(255, 209, 102, 0.12);
+        color: var(--warn);
+        border: 1px solid rgba(255, 209, 102, 0.4);
+      }
+
+      .project-link {
+        color: #8bffe0;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .project-link:hover {
+        text-decoration: underline;
+      }
+
+      .checklist {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .check {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 14px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .result-grid {
+        display: grid;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .result {
+        border-left: 3px solid var(--primary);
+        background: rgba(0, 193, 140, 0.08);
+        padding: 14px;
+        border-radius: 12px;
+      }
+
+      .authority-box {
+        margin-top: 22px;
+        background: linear-gradient(160deg, rgba(21, 55, 68, 0.9), rgba(11, 33, 40, 0.95));
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        padding: 22px;
+      }
+
+      .cta-wrap {
+        margin-top: 20px;
+        display: grid;
+        gap: 20px;
+      }
+
+      form {
+        background: rgba(0, 0, 0, 0.24);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 16px;
+        padding: 18px;
+      }
+
+      .field {
+        margin-bottom: 12px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid #2b5561;
+        background: #0b2027;
+        color: var(--text);
+        font: 400 0.95rem "IBM Plex Sans", sans-serif;
+        padding: 12px 12px;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: 2px solid rgba(0, 193, 140, 0.55);
+        border-color: rgba(0, 193, 140, 0.7);
+      }
+
+      .form-note {
+        margin-top: 10px;
+        color: #b4cad0;
+        font-size: 0.82rem;
+      }
+
+      .form-feedback {
+        margin-top: 10px;
+        font-weight: 600;
+        font-size: 0.92rem;
+      }
+
+      .form-feedback.success {
+        color: #89f0cd;
+      }
+
+      .form-feedback.error {
+        color: var(--danger);
+      }
+
+      .faq-list {
+        margin-top: 20px;
+        display: grid;
+        gap: 12px;
+      }
+
+      details {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      details p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+
+      footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 24px 0 42px;
+      }
+
+      .footer-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (min-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1.2fr 0.8fr;
+          align-items: stretch;
+        }
+
+        .grid-3 {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .cta-wrap {
+          grid-template-columns: 1fr 1fr;
+          align-items: start;
+        }
+      }
+    </style>
+    <style>
+      :root {
+        --site-bg: #06020c;
+        --site-text: #f7f4ff;
+        --site-muted: rgba(247, 244, 255, 0.62);
+        --site-border: rgba(255, 255, 255, 0.1);
+        --site-panel: rgba(255, 255, 255, 0.045);
+        --site-panel-strong: rgba(255, 255, 255, 0.07);
+        --site-glow: rgba(129, 79, 255, 0.24);
+      }
+
+      body {
+        font-family: "SF Pro Display", "SF Pro Text", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at top right, rgba(125, 73, 255, 0.24), transparent 34%),
+          radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.06), transparent 16%),
+          radial-gradient(circle at 80% 82%, rgba(115, 23, 124, 0.18), transparent 24%),
+          linear-gradient(180deg, #12081a 0%, #09040f 48%, #05020a 100%);
+        background-attachment: fixed;
+        color: var(--site-text);
+      }
+
+      .topbar {
+        background: rgba(6, 2, 12, 0.62);
+        border-bottom: 1px solid var(--site-border);
+      }
+
+      .topbar-inner {
+        min-height: 78px;
+      }
+
+      .brand strong,
+      .section-title,
+      #headline,
+      .offer-box h3,
+      .card h3 {
+        font-family: inherit;
+        letter-spacing: 0;
+      }
+
+      .brand span,
+      .section-lead,
+      .hero-sub,
+      .card p,
+      details p,
+      .footer-inner,
+      .microcopy {
+        color: var(--site-muted);
+      }
+
+      .btn {
+        min-height: 48px;
+        border-radius: 999px;
+        gap: 8px;
+      }
+
+      .btn-primary {
+        background: var(--site-text);
+        color: #09040f;
+        box-shadow: 0 18px 44px rgba(247, 244, 255, 0.18);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--site-border);
+        color: var(--site-text);
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 34px 0 46px;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(9, 4, 15, 0.2), rgba(9, 4, 15, 0.9)),
+          radial-gradient(circle at 74% 18%, rgba(129, 79, 255, 0.16), transparent 34%);
+        pointer-events: none;
+      }
+
+      .hero-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.16;
+        filter: grayscale(1);
+      }
+
+      .hero-grid,
+      .hero .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-card,
+      .offer-box,
+      .card,
+      .authority-box,
+      form,
+      details,
+      .check,
+      .result {
+        border: 1px solid var(--site-border);
+        background: var(--site-panel);
+        backdrop-filter: blur(24px);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 24px 80px rgba(0, 0, 0, 0.32),
+          0 20px 60px rgba(62, 21, 90, 0.16);
+      }
+
+      .hero-card {
+        border-radius: 44px;
+        padding: clamp(26px, 4vw, 48px);
+        background: rgba(255, 255, 255, 0.055);
+      }
+
+      .offer-box {
+        border-radius: 36px;
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .eyebrow {
+        color: rgba(247, 244, 255, 0.68);
+      }
+
+      .eyebrow::before {
+        background: rgba(247, 244, 255, 0.7);
+      }
+
+      #headline {
+        max-width: 920px;
+        font-size: clamp(2.55rem, 7vw, 5.9rem);
+        font-weight: 500;
+        line-height: 0.98;
+      }
+
+      .hero-sub {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        line-height: 1.65;
+      }
+
+      .hero-points li,
+      .kpi,
+      .variant-btn {
+        background: rgba(255, 255, 255, 0.045);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 18px;
+      }
+
+      .variant-btn.active {
+        background: rgba(247, 244, 255, 0.94);
+        color: #09040f;
+      }
+
+      .price {
+        color: var(--site-text);
+        font-weight: 500;
+      }
+
+      .section {
+        padding: 84px 0;
+      }
+
+      .grid-3,
+      .result-grid,
+      .checklist,
+      .faq-list {
+        gap: 16px;
+      }
+
+      .card,
+      .authority-box,
+      form {
+        border-radius: 32px;
+      }
+
+      .pill {
+        border-color: rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(247, 244, 255, 0.72);
+      }
+
+      .project-link {
+        color: #f7f4ff;
+      }
+
+      input,
+      textarea {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.055);
+        color: var(--site-text);
+        border-radius: 22px;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: 2px solid rgba(247, 244, 255, 0.12);
+        border-color: rgba(247, 244, 255, 0.24);
+      }
+
+      .form-feedback.success {
+        color: #d8c7ff;
+      }
+
+      footer {
+        border-top-color: var(--site-border);
+      }
+
+      @media (max-width: 640px) {
+        .hero-card {
+          border-radius: 30px;
+        }
+
+        .offer-box,
+        .card,
+        .authority-box,
+        form {
+          border-radius: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand">
+          <strong>Maykon Lincoln</strong>
+          <span>Engenharia de Dados • Software • IA Avançada</span>
+        </div>
+        <a class="btn btn-secondary" href="https://maykonlincoln.com" target="_blank" rel="noopener noreferrer">Site oficial</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <video class="hero-video" autoplay loop muted playsinline aria-hidden="true">
+          <source src="/0_Tech_Electronics_1920x1080.mp4" type="video/mp4" />
+        </video>
+        <div class="container hero-grid">
+          <article class="hero-card">
+            <span class="eyebrow">Oferta Menor • 4 semanas</span>
+            <h1 id="headline">Pare de operar no escuro: transforme gargalos operacionais em decisões orientadas por IA.</h1>
+            <p class="hero-sub">
+              Auditoria técnica com foco em dados, automação e arquitetura. Em até 4 semanas, você recebe diagnóstico
+              objetivo e uma prova de conceito com 1 agente funcional conectado ao seu desafio real.
+            </p>
+            <ul class="hero-points">
+              <li><strong>Entrega prática:</strong> escopo fechado, prazo definido e critério técnico de validação.</li>
+              <li><strong>Foco executivo:</strong> impacto operacional, risco, custo e velocidade de decisão.</li>
+              <li><strong>Sem dependência futura:</strong> documentação e orientação para continuidade interna.</li>
+            </ul>
+            <div class="headline-switcher" id="headlineSwitcher"></div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#formulario">Quero iniciar a auditoria</a>
+              <a class="btn btn-secondary" href="#projetos">Ver prova técnica</a>
+            </div>
+            <p class="microcopy">Projeto pago, sem compromisso recorrente.</p>
+          </article>
+
+          <aside class="offer-box">
+            <h3>Auditoria Técnica + Prova de Conceito com Agentes de IA</h3>
+            <p class="price">R$ 7.900</p>
+            <p>Duração: <strong>4 semanas</strong></p>
+            <p>Escopo: diagnóstico técnico completo + construção de <strong>1 agente funcional</strong>.</p>
+            <div class="kpis">
+              <div class="kpi"><strong>Semana 1</strong>Mapeamento de processo e dados</div>
+              <div class="kpi"><strong>Semana 2</strong>Arquitetura e plano de automação</div>
+              <div class="kpi"><strong>Semana 3</strong>Implementação da PoC</div>
+              <div class="kpi"><strong>Semana 4</strong>Validação técnica e próximos passos</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="dores">
+        <div class="container">
+          <h2 class="section-title">Sinais de que sua operação já está perdendo dinheiro</h2>
+          <p class="section-lead">
+            A maioria dos times não falha por falta de esforço. Falha por fluxo manual, baixa previsibilidade e dados
+            desconectados da decisão.
+          </p>
+          <div class="grid-3">
+            <article class="card">
+              <h3>Processos manuais que travam escala</h3>
+              <p>Tarefas repetitivas consomem equipe técnica e operação, com pouca rastreabilidade.</p>
+            </article>
+            <article class="card">
+              <h3>Automação superficial</h3>
+              <p>Ferramentas isoladas sem inteligência de decisão não sustentam eficiência no crescimento.</p>
+            </article>
+            <article class="card">
+              <h3>Dados sem uso estratégico</h3>
+              <p>Relatórios existem, mas não acionam respostas rápidas para risco, atraso ou desperdício.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="diferencial">
+        <div class="container">
+          <h2 class="section-title">Diferencial técnico aplicado ao negócio</h2>
+          <p class="section-lead">
+            O trabalho combina engenharia de dados, sistemas distribuídos e IA multi-agente para automatizar decisões
+            operacionais com controle técnico.
+          </p>
+          <div class="grid-3">
+            <article class="card">
+              <h3>Engenharia de dados aplicada</h3>
+              <p>
+                Organização de fontes, eventos e indicadores para que a IA opere em dados confiáveis e úteis para
+                decisão.
+              </p>
+            </article>
+            <article class="card">
+              <h3>IA multi-agente com função clara</h3>
+              <p>
+                Cada agente executa uma responsabilidade específica (monitorar, prever, alertar, recomendar), reduzindo
+                ruído e melhorando precisão.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Otimização inspirada em física</h3>
+              <p>
+                Princípios de simulação e estabilidade são usados para testar cenários e reduzir risco antes da
+                implantação.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projetos">
+        <div class="container">
+          <h2 class="section-title">Exemplos de arquiteturas que desenvolvo</h2>
+          <p class="section-lead">
+            Estes projetos demonstram capacidade técnica de arquitetura e implementação. Não representam promessa de
+            resultado idêntico para todos os cenários.
+          </p>
+          <article class="card project-card">
+            <h3>DeliveryWatch AI</h3>
+            <div class="project-meta">
+              <span class="pill">Prova de capacidade técnica</span>
+              <span class="pill">Sistema multi-agente</span>
+            </div>
+            <p>
+              Arquitetura autônoma para monitorar entregas em tempo real, detectar riscos, prever atrasos e automatizar
+              suporte logístico com múltiplos agentes especializados.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/maykonlincolnusa/delivery_ia"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver repositório no GitHub
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="entregaveis">
+        <div class="container">
+          <h2 class="section-title">O que você recebe</h2>
+          <p class="section-lead">Entrega técnica objetiva para reduzir incerteza e acelerar decisão de investimento.</p>
+          <div class="checklist">
+            <div class="check">Diagnóstico técnico da operação atual com pontos de perda e gargalos priorizados.</div>
+            <div class="check">Mapa de dados críticos para automação, com riscos de qualidade e latência.</div>
+            <div class="check">Desenho de arquitetura recomendada para sua realidade (dados, agentes, integração).</div>
+            <div class="check">1 agente funcional de prova de conceito conectado ao caso de uso escolhido.</div>
+            <div class="check">Métricas de validação da PoC (eficiência, tempo de resposta, redução de retrabalho).</div>
+            <div class="check">Plano de evolução para produção com fases, prioridade e dependências técnicas.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="beneficios">
+        <div class="container">
+          <h2 class="section-title">Benefícios esperados para a operação</h2>
+          <p class="section-lead">
+            O objetivo é criar ganho real de performance, não apenas adicionar uma camada de tecnologia.
+          </p>
+          <div class="result-grid">
+            <div class="result"><strong>Redução de custo operacional:</strong> menos esforço manual e menos retrabalho.</div>
+            <div class="result"><strong>Aumento de eficiência:</strong> fluxo mais previsível com decisões orientadas por dados.</div>
+            <div class="result"><strong>Automação real:</strong> agentes executando tarefas com regras e contexto de negócio.</div>
+            <div class="result"><strong>Decisão mais rápida:</strong> visibilidade de risco e recomendação acionável.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="autoridade">
+        <div class="container">
+          <h2 class="section-title">Autoridade técnica</h2>
+          <div class="authority-box">
+            <p>
+              Maykon Lincoln atua no cruzamento de <strong>engenharia de dados, desenvolvimento de software e IA
+              avançada</strong>, com foco em resolver problemas operacionais complexos de empresas.
+            </p>
+            <p>
+              A base metodológica inclui formação contínua com trilhas e cursos do <strong>MIT</strong>, aplicada de forma
+              pragmática em sistemas multi-agente, arquiteturas distribuídas e simulações para otimização.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="formulario">
+        <div class="container">
+          <h2 class="section-title">Solicite sua auditoria técnica</h2>
+          <p class="section-lead">
+            Envie seu cenário e receba retorno com viabilidade técnica inicial e próximos passos.
+          </p>
+          <div class="cta-wrap">
+            <article class="card">
+              <h3>Escopo desta oferta</h3>
+              <ul>
+                <li>Projeto de 4 semanas</li>
+                <li>Investimento único de R$ 7.900</li>
+                <li>Sem compromisso recorrente</li>
+                <li>Entrega técnica com recomendação executiva</li>
+              </ul>
+            </article>
+            <form id="leadForm" action="https://formsubmit.co/maykon_zero@hotmail.com" method="POST" novalidate>
+              <input type="hidden" name="_subject" value="Novo lead - Auditoria Tecnica + PoC com Agentes de IA" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="oferta" value="Auditoria Tecnica + Prova de Conceito com Agentes de IA" />
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display: none" />
+              <div class="field">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" required />
+              </div>
+              <div class="field">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" name="empresa" required />
+              </div>
+              <div class="field">
+                <label for="whatsapp">WhatsApp</label>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" required />
+              </div>
+              <div class="field">
+                <label for="desafio">Descrição do desafio</label>
+                <textarea id="desafio" name="desafio" rows="4" required></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Quero avançar com a prova de conceito</button>
+              <p class="form-note">Projeto pago, sem compromisso recorrente.</p>
+              <div id="formFeedback" class="form-feedback" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <h2 class="section-title">FAQ</h2>
+          <div class="faq-list">
+            <details>
+              <summary>Funciona para minha empresa?</summary>
+              <p>
+                A auditoria é indicada para empresas com operação técnica ou operacional que dependem de dados, fluxos e
+                decisões repetitivas. O diagnóstico define aderência antes de qualquer expansão.
+              </p>
+            </details>
+            <details>
+              <summary>Quanto tempo leva?</summary>
+              <p>O projeto é executado em 4 semanas, com cronograma fechado e entregas por fase.</p>
+            </details>
+            <details>
+              <summary>Preciso de equipe técnica?</summary>
+              <p>
+                Não obrigatoriamente. Ter um ponto de contato técnico ajuda na integração, mas a entrega é desenhada para
+                também ser compreendida por gestores.
+              </p>
+            </details>
+            <details>
+              <summary>Isso já vem pronto?</summary>
+              <p>
+                A oferta inclui diagnóstico + 1 agente funcional de prova de conceito, customizado para seu caso. Não é
+                template genérico.
+              </p>
+            </details>
+            <details>
+              <summary>É pago mesmo?</summary>
+              <p>
+                Sim. É um projeto técnico com escopo definido, investimento único de R$ 7.900, sem cobrança recorrente.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <span>© 2026 Maykon Lincoln</span>
+        <a class="project-link" href="https://maykonlincoln.com" target="_blank" rel="noopener noreferrer">maykonlincoln.com</a>
+      </div>
+    </footer>
+
+    <script>
+      const headlines = [
+        "Pare de operar no escuro: transforme gargalos operacionais em decisões orientadas por IA.",
+        "Seu time não precisa de mais reuniões, precisa de agentes que executam com dados confiáveis.",
+        "Reduza ineficiência técnica com uma PoC de IA aplicada ao seu processo crítico.",
+        "Em 4 semanas, valide se IA multi-agente gera retorno real na sua operação."
+      ];
+
+      const headlineEl = document.getElementById("headline");
+      const switcher = document.getElementById("headlineSwitcher");
+      let currentHeadline = 0;
+
+      function renderHeadlineButtons() {
+        headlines.forEach((_, index) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = `variant-btn ${index === 0 ? "active" : ""}`;
+          btn.textContent = `Headline ${index + 1}`;
+          btn.addEventListener("click", () => setHeadline(index));
+          switcher.appendChild(btn);
+        });
+      }
+
+      function setHeadline(index) {
+        currentHeadline = index;
+        headlineEl.textContent = headlines[index];
+        document.querySelectorAll(".variant-btn").forEach((btn, i) => {
+          btn.classList.toggle("active", i === index);
+        });
+      }
+
+      renderHeadlineButtons();
+
+      setInterval(() => {
+        const next = (currentHeadline + 1) % headlines.length;
+        setHeadline(next);
+      }, 6500);
+
+      const form = document.getElementById("leadForm");
+      const feedback = document.getElementById("formFeedback");
+
+      function onlyDigits(value) {
+        return value.replace(/\D/g, "");
+      }
+
+      form.addEventListener("submit", (event) => {
+        const nome = document.getElementById("nome").value.trim();
+        const empresa = document.getElementById("empresa").value.trim();
+        const whatsapp = document.getElementById("whatsapp").value.trim();
+        const desafio = document.getElementById("desafio").value.trim();
+
+        if (!nome || !empresa || !whatsapp || !desafio) {
+          event.preventDefault();
+          feedback.className = "form-feedback error";
+          feedback.textContent = "Preencha todos os campos para enviar sua solicitação.";
+          return;
+        }
+
+        if (onlyDigits(whatsapp).length < 10) {
+          event.preventDefault();
+          feedback.className = "form-feedback error";
+          feedback.textContent = "Informe um WhatsApp válido com DDD.";
+          return;
+        }
+
+        feedback.className = "form-feedback";
+        feedback.textContent = "Enviando sua solicitação...";
+      });
+    </script>
+  </body>
+</html>
