@@ -14,20 +14,20 @@
   --text-6xl: 3.75rem;
   --text-7xl: 4.5rem;
   --text-8xl: 6rem;
-  --background: #070b15;
-  --foreground: #f5f7fb;
-  --card: rgba(11, 16, 28, 0.72);
-  --card-foreground: #f5f7fb;
-  --popover: rgba(11, 16, 28, 0.9);
-  --popover-foreground: #f5f7fb;
-  --primary: #f5f7fb;
-  --primary-foreground: #070b15;
+  --background: #06020c;
+  --foreground: #f7f4ff;
+  --card: rgba(20, 11, 31, 0.76);
+  --card-foreground: #f7f4ff;
+  --popover: rgba(15, 8, 24, 0.92);
+  --popover-foreground: #f7f4ff;
+  --primary: #f7f4ff;
+  --primary-foreground: #09040f;
   --secondary: rgba(255, 255, 255, 0.08);
-  --secondary-foreground: #f5f7fb;
-  --muted: #0f1626;
-  --muted-foreground: #99a5ba;
+  --secondary-foreground: #f7f4ff;
+  --muted: #12091d;
+  --muted-foreground: #aa9cbf;
   --accent: rgba(255, 255, 255, 0.08);
-  --accent-foreground: #f5f7fb;
+  --accent-foreground: #f7f4ff;
   --destructive: #ef4444;
   --destructive-foreground: #f8fafc;
   --border: rgba(255, 255, 255, 0.09);
@@ -36,46 +36,46 @@
   --switch-background: rgba(255, 255, 255, 0.14);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: rgba(255, 255, 255, 0.18);
+  --ring: rgba(223, 211, 255, 0.2);
   --radius: 1.25rem;
-  --glass-bg: rgba(13, 19, 33, 0.56);
+  --glass-bg: rgba(16, 10, 25, 0.6);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-blur: 22px;
-  --chart-1: oklch(0.72 0.12 251);
-  --chart-2: oklch(0.76 0.11 193);
-  --chart-3: oklch(0.81 0.12 94);
-  --chart-4: oklch(0.68 0.18 315);
-  --chart-5: oklch(0.67 0.18 18);
-  --sidebar: rgba(11, 16, 28, 0.82);
-  --sidebar-foreground: #f5f7fb;
-  --sidebar-primary: #f5f7fb;
-  --sidebar-primary-foreground: #070b15;
+  --chart-1: oklch(0.69 0.17 309);
+  --chart-2: oklch(0.72 0.12 266);
+  --chart-3: oklch(0.79 0.09 215);
+  --chart-4: oklch(0.77 0.12 18);
+  --chart-5: oklch(0.72 0.1 110);
+  --sidebar: rgba(12, 7, 20, 0.86);
+  --sidebar-foreground: #f7f4ff;
+  --sidebar-primary: #f7f4ff;
+  --sidebar-primary-foreground: #09040f;
   --sidebar-accent: rgba(255, 255, 255, 0.08);
-  --sidebar-accent-foreground: #f5f7fb;
+  --sidebar-accent-foreground: #f7f4ff;
   --sidebar-border: rgba(255, 255, 255, 0.08);
-  --sidebar-ring: rgba(255, 255, 255, 0.16);
+  --sidebar-ring: rgba(223, 211, 255, 0.18);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
+  --background: #06020c;
+  --foreground: #f7f4ff;
+  --card: rgba(20, 11, 31, 0.76);
+  --card-foreground: #f7f4ff;
+  --popover: rgba(15, 8, 24, 0.92);
+  --popover-foreground: #f7f4ff;
+  --primary: #f7f4ff;
+  --primary-foreground: #09040f;
+  --secondary: rgba(255, 255, 255, 0.08);
+  --secondary-foreground: #f7f4ff;
+  --muted: #12091d;
+  --muted-foreground: #aa9cbf;
+  --accent: rgba(255, 255, 255, 0.08);
+  --accent-foreground: #f7f4ff;
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+  --border: rgba(255, 255, 255, 0.09);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: rgba(223, 211, 255, 0.2);
 }
 
 @theme inline {
@@ -136,9 +136,10 @@
     @apply bg-background text-foreground;
     min-height: 100vh;
     background-image:
-      radial-gradient(circle at top, rgba(119, 160, 255, 0.16), transparent 34%),
-      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 18%),
-      linear-gradient(180deg, #0a0f1b 0%, #070b15 48%, #04070f 100%);
+      radial-gradient(circle at top right, rgba(125, 73, 255, 0.22), transparent 34%),
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.06), transparent 16%),
+      radial-gradient(circle at 80% 82%, rgba(115, 23, 124, 0.18), transparent 24%),
+      linear-gradient(180deg, #12081a 0%, #09040f 48%, #05020a 100%);
     background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -149,7 +150,7 @@
   }
 
   ::selection {
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(219, 202, 255, 0.18);
     color: white;
   }
 

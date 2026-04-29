@@ -123,9 +123,7 @@ export function Contact() {
             className="surface-panel rounded-[2.75rem] px-6 py-8 lg:px-8 lg:py-10"
           >
             <div className="section-kicker">{t("contact.form_title")}</div>
-            <h2 className="mt-4 text-3xl font-medium tracking-[-0.04em] text-white md:text-4xl">
-              {t("contact.form_title")}
-            </h2>
+            <h2 className="mt-4 text-3xl font-medium tracking-[-0.04em] text-white md:text-4xl">{t("contact.form_title")}</h2>
 
             <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
               <div className="grid gap-5 sm:grid-cols-2">

@@ -3,7 +3,21 @@ import { Button } from "../components/ui/button";
 import { motion } from "motion/react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { SEO } from "../components/SEO";
-import { ArrowRight, Code2, Database, Network, ShieldCheck, SquareTerminal, Cpu, Globe2, Zap, Github, Instagram, Linkedin } from "lucide-react";
+import {
+  ArrowRight,
+  Code2,
+  Database,
+  Network,
+  ShieldCheck,
+  SquareTerminal,
+  Cpu,
+  Globe2,
+  Zap,
+  Github,
+  Instagram,
+  Linkedin,
+  Building2,
+} from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export function About() {
@@ -175,6 +189,39 @@ export function About() {
                    <p className="text-white/50 font-light leading-relaxed">{item.desc}</p>
                 </div>
              ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 border-y border-white/5 bg-[#050311]/55">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="mb-14 max-w-3xl">
+            <div className="section-kicker">{t("about.operations_kicker")}</div>
+            <h2 className="section-heading mt-4">{t("about.operations_title")}</h2>
+            <p className="section-copy mt-5">{t("about.operations_subtitle")}</p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              { icon: ShieldCheck, title: t("about.operations_item1_title"), desc: t("about.operations_item1_desc") },
+              { icon: Building2, title: t("about.operations_item2_title"), desc: t("about.operations_item2_desc") },
+              { icon: Globe2, title: t("about.operations_item3_title"), desc: t("about.operations_item3_desc") },
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="surface-panel rounded-[2rem] p-6"
+              >
+                <div className="flex size-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05]">
+                  <item.icon className="size-6 text-white/[0.78]" />
+                </div>
+                <h3 className="mt-6 text-2xl font-medium tracking-tight text-white">{item.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-white/[0.56]">{item.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

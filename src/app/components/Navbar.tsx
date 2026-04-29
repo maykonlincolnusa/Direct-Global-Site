@@ -20,6 +20,7 @@ export function Navbar() {
     { href: "/", label: t("nav.home") },
     { href: "/sobre", label: t("nav.about") },
     { href: "/solucoes", label: t("nav.solutions") },
+    { href: "/blog", label: "Blog" },
     { href: "/direct-global", label: t("nav.directGlobal") },
   ];
 
@@ -72,7 +73,7 @@ export function Navbar() {
                     <span>{currentLanguage.toUpperCase()}</span>
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="glass min-w-[160px] rounded-2xl border-white/10 bg-black/70 p-2 backdrop-blur-2xl">
+                <DropdownMenuContent align="end" className="glass min-w-[160px] rounded-2xl border-white/10 bg-black/[0.78] p-2 backdrop-blur-2xl">
                   {languages.map((lang) => (
                     <DropdownMenuItem
                       key={lang.code}

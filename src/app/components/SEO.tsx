@@ -10,12 +10,12 @@ interface SEOProps {
 
 export function SEO({
   title,
-  description = "Direct Global: inteligência artificial, engenharia de dados e automação gerencial para operações de alta performance.",
-  keywords = "AI, Business Intelligence, Data Engineering, Automation, Maykon Lincoln, Direct Global",
+  description = "Direct Global: tecnologia, seguran\u00e7a e engenharia para sistemas digitais cr\u00edticos, opera\u00e7\u00f5es multiind\u00fastria e crescimento global.",
+  keywords = "Technology, Security, Systems Engineering, AI, Automation, Data Engineering, Franchises, Global Operations, Maykon Lincoln, Direct Global",
   image = "/Cover image.png",
   url = "https://directplatform.com",
 }: SEOProps) {
-  const siteTitle = title ? `${title} | Direct Global` : "Direct Global | Intelligence Scale Engine";
+  const siteTitle = title ? `${title} | Direct Global` : "Direct Global | Technology Security Engineering";
 
   return (
     <Helmet>
