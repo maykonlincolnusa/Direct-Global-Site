@@ -322,10 +322,10 @@ export function Home() {
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div className="max-w-2xl">
               <div className="section-kicker">Nossos clientes</div>
-              <h2 className="section-heading mt-4">Marcas, operacoes e redes que ja confiaram no trabalho.</h2>
+              <h2 className="section-heading mt-4">Marcas, operações e redes que já confiaram no trabalho.</h2>
               <p className="section-copy mt-5">
-                Esta base reune clientes atendidos em diferentes contextos, do mercado local a operacoes com alcance
-                internacional. A proposta aqui e simples: mostrar prova real de relacionamento e execucao.
+                Esta base reúne clientes atendidos em diferentes contextos, do mercado local a operações com alcance
+                internacional. A proposta aqui é simples: mostrar prova real de relacionamento e execução.
               </p>
             </div>
 

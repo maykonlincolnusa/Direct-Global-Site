@@ -201,28 +201,6 @@
         padding: 9px 12px;
       }
 
-      .headline-switcher {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .variant-btn {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: #d5e6ea;
-        border-radius: 999px;
-        padding: 8px 12px;
-        font: 500 0.83rem "IBM Plex Sans", sans-serif;
-        cursor: pointer;
-      }
-
-      .variant-btn.active {
-        border-color: transparent;
-        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-        color: #03261d;
-      }
-
       .hero-actions {
         margin-top: 24px;
         display: flex;
@@ -629,16 +607,10 @@
       }
 
       .hero-points li,
-      .kpi,
-      .variant-btn {
+      .kpi {
         background: rgba(255, 255, 255, 0.045);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 18px;
-      }
-
-      .variant-btn.active {
-        background: rgba(247, 244, 255, 0.94);
-        color: #09040f;
       }
 
       .price {
@@ -728,7 +700,7 @@
         <div class="container hero-grid">
           <article class="hero-card">
             <span class="eyebrow">Oferta Menor • 4 semanas</span>
-            <h1 id="headline">Pare de operar no escuro: transforme gargalos operacionais em decisões orientadas por IA.</h1>
+            <h1 id="headline">Auditoria Técnica + Prova de Conceito com Agentes de IA</h1>
             <p class="hero-sub">
               Auditoria técnica com foco em dados, automação e arquitetura. Em até 4 semanas, você recebe diagnóstico
               objetivo e uma prova de conceito com 1 agente funcional conectado ao seu desafio real.
@@ -738,7 +710,6 @@
               <li><strong>Foco executivo:</strong> impacto operacional, risco, custo e velocidade de decisão.</li>
               <li><strong>Sem dependência futura:</strong> documentação e orientação para continuidade interna.</li>
             </ul>
-            <div class="headline-switcher" id="headlineSwitcher"></div>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#formulario">Quero iniciar a auditoria</a>
               <a class="btn btn-secondary" href="#projetos">Ver prova técnica</a>
@@ -987,43 +958,6 @@
     </footer>
 
     <script>
-      const headlines = [
-        "Pare de operar no escuro: transforme gargalos operacionais em decisões orientadas por IA.",
-        "Seu time não precisa de mais reuniões, precisa de agentes que executam com dados confiáveis.",
-        "Reduza ineficiência técnica com uma PoC de IA aplicada ao seu processo crítico.",
-        "Em 4 semanas, valide se IA multi-agente gera retorno real na sua operação."
-      ];
-
-      const headlineEl = document.getElementById("headline");
-      const switcher = document.getElementById("headlineSwitcher");
-      let currentHeadline = 0;
-
-      function renderHeadlineButtons() {
-        headlines.forEach((_, index) => {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = `variant-btn ${index === 0 ? "active" : ""}`;
-          btn.textContent = `Headline ${index + 1}`;
-          btn.addEventListener("click", () => setHeadline(index));
-          switcher.appendChild(btn);
-        });
-      }
-
-      function setHeadline(index) {
-        currentHeadline = index;
-        headlineEl.textContent = headlines[index];
-        document.querySelectorAll(".variant-btn").forEach((btn, i) => {
-          btn.classList.toggle("active", i === index);
-        });
-      }
-
-      renderHeadlineButtons();
-
-      setInterval(() => {
-        const next = (currentHeadline + 1) % headlines.length;
-        setHeadline(next);
-      }, 6500);
-
       const form = document.getElementById("leadForm");
       const feedback = document.getElementById("formFeedback");
 

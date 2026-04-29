@@ -548,15 +548,11 @@ export function AgentOfferLanding({ content }: { content: OfferLandingContent })
               <SignalPanel content={content} />
 
               <div className="rounded-xl border border-white/10 bg-white/[0.04] p-5">
-                <div className="text-[10px] uppercase tracking-[0.22em] text-white/38">Headlines para teste A/B</div>
-                <div className="mt-4 grid gap-3">
-                  {content.headlineVariations.map((headline, index) => (
-                    <div key={headline} className="flex gap-3 rounded-lg border border-white/8 bg-black/15 p-3 text-sm leading-6 text-white/68">
-                      <span className="text-[#91f2d2]">0{index + 1}</span>
-                      <span>{headline}</span>
-                    </div>
-                  ))}
-                </div>
+                <div className="text-[10px] uppercase tracking-[0.22em] text-white/38">Leitura executiva</div>
+                <p className="mt-4 text-sm leading-7 text-white/64">
+                  A proposta não é vender IA como conceito. É transformar um processo crítico em arquitetura mensurável,
+                  com dados, agentes, integração e critério claro de validação.
+                </p>
               </div>
             </motion.div>
           </div>

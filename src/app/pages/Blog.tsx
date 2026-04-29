@@ -36,69 +36,69 @@ const projects = [
     icon: ShieldCheck,
     href: "https://github.com/maykonlincolnusa/Fraud-Master-Bank-FMB-system-anti-fraud",
     summary:
-      "Plataforma de inteligencia anti-fraude orientada a eventos, pensada para operacoes financeiras que precisam identificar anomalias antes do prejuizo.",
+      "Plataforma de inteligência antifraude orientada a eventos, pensada para operações financeiras que precisam identificar anomalias antes do prejuízo.",
     businessImpact:
-      "Para bancos, fintechs, marketplaces, operacoes de credito ou qualquer empresa que aprove transacoes, pagamentos ou cadastros sob risco. A logica aqui reduz perda, acelera triagem e melhora governanca.",
+      "Para bancos, fintechs, marketplaces, operações de crédito ou qualquer empresa que aprove transações, pagamentos ou cadastros sob risco. A lógica aqui reduz perda, acelera triagem e melhora governança.",
     implementation:
-      "Pode ser implementado com ingestao continua de eventos, pipelines serverless, analytics em tempo real e modelos explicaveis de score. Isso conversa diretamente com arquiteturas de streaming e ML em AWS.",
+      "Pode ser implementado com ingestão contínua de eventos, pipelines serverless, analytics em tempo real e modelos explicáveis de score. Isso conversa diretamente com arquiteturas de streaming e ML em AWS.",
     outcome:
-      "O cliente entende que nao esta comprando um dashboard. Esta comprando um sistema para detectar risco mais cedo, responder mais rapido e decidir com mais confianca.",
+      "O cliente entende que não está comprando um dashboard. Está comprando um sistema para detectar risco mais cedo, responder mais rápido e decidir com mais confiança.",
   },
   {
     title: "AXIOM",
-    label: "IA multiagente para decisoes complexas",
+    label: "IA multiagente para decisões complexas",
     icon: BrainCircuit,
     href: "https://github.com/maykonlincolnusa/AXIOM",
     summary:
-      "Plataforma modular com agentes especializados em dominios diferentes, operando sob uma camada de raciocinio compartilhada.",
+      "Plataforma modular com agentes especializados em domínios diferentes, operando sob uma camada de raciocínio compartilhada.",
     businessImpact:
-      "Serve para empresas que precisam transformar analise espalhada em sistema operacional inteligente: juridico, financeiro, imobiliario, compliance, back-office ou suporte executivo.",
+      "Serve para empresas que precisam transformar análise espalhada em sistema operacional inteligente: jurídico, financeiro, imobiliário, compliance, back-office ou suporte executivo.",
     implementation:
-      "Pode ser implementado com agentes especialistas, roteamento por contexto, memoria seletiva e orchestration patterns para distribuir subtarefas sem sobrecarregar um unico modelo.",
+      "Pode ser implementado com agentes especialistas, roteamento por contexto, memória seletiva e orchestration patterns para distribuir subtarefas sem sobrecarregar um único modelo.",
     outcome:
-      "O valor para o cliente nao e 'ter IA'. E ganhar velocidade analitica, consistencia de decisao e reducao de dependencia manual em rotinas caras.",
+      "O valor para o cliente não é 'ter IA'. É ganhar velocidade analítica, consistência de decisão e redução de dependência manual em rotinas caras.",
   },
   {
     title: "ArcaERP",
-    label: "ERP e operacao centralizada",
+    label: "ERP e operação centralizada",
     icon: Building2,
     href: "https://github.com/maykonlincolnusa/ArcaERP",
     summary:
-      "MVP de ERP para organizar clientes, processos e visao operacional em uma base central mais limpa e controlavel.",
+      "MVP de ERP para organizar clientes, processos e visão operacional em uma base central mais limpa e controlável.",
     businessImpact:
-      "Faz sentido para empresas em crescimento, franquias, operacoes comerciais e negocios que ja sentem atrito entre atendimento, financeiro, cadastro e execucao.",
+      "Faz sentido para empresas em crescimento, franquias, operações comerciais e negócios que já sentem atrito entre atendimento, financeiro, cadastro e execução.",
     implementation:
-      "Pode evoluir para um nucleo transacional com permissao por papel, integracoes com CRM e financeiro, workflows automatizados e camada analitica para operacao multiunidade.",
+      "Pode evoluir para um núcleo transacional com permissão por papel, integrações com CRM e financeiro, workflows automatizados e camada analítica para operação multiunidade.",
     outcome:
-      "O cliente enxerga claramente que sistema interno bem desenhado nao e custo administrativo. E o que impede a empresa de crescer com desordem.",
+      "O cliente enxerga claramente que sistema interno bem desenhado não é custo administrativo. É o que impede a empresa de crescer com desordem.",
   },
   {
     title: "Alerta Risco GPS",
-    label: "Geointeligencia e monitoramento territorial",
+    label: "Geointeligência e monitoramento territorial",
     icon: Globe2,
     href: "https://github.com/maykonlincolnusa/alerta_risco_gps",
     summary:
       "Sistema de monitoramento geoespacial com alertas contextuais, zonas de risco, consulta via chat e leitura operacional de deslocamento.",
     businessImpact:
-      "Pode ser adaptado para seguranca, logistica, equipes de campo, delivery, operacoes urbanas, seguros, protecao patrimonial e mobilidade em areas sensiveis.",
+      "Pode ser adaptado para segurança, logística, equipes de campo, delivery, operações urbanas, seguros, proteção patrimonial e mobilidade em áreas sensíveis.",
     implementation:
-      "A implementacao conversa com mapas interativos, geofencing, camadas georreferenciadas, historico de alertas e experiencia mobile-first para times que operam fora do escritorio.",
+      "A implementação conversa com mapas interativos, geofencing, camadas georreferenciadas, histórico de alertas e experiência mobile-first para times que operam fora do escritório.",
     outcome:
-      "Em vez de reagir depois do incidente, a empresa passa a antecipar exposicao, orientar deslocamento e transformar territorio em dado acionavel.",
+      "Em vez de reagir depois do incidente, a empresa passa a antecipar exposição, orientar deslocamento e transformar território em dado acionável.",
   },
   {
     title: "Sovereign AI Security Platform",
-    label: "Seguranca aplicada a sistemas criticos",
+    label: "Segurança aplicada a sistemas críticos",
     icon: Radar,
     href: "https://github.com/maykonlincolnusa",
     summary:
-      "Conceito de plataforma soberana para deteccao de intrusao, modelagem de ameacas e correlacao forense com disciplina tecnica mais madura.",
+      "Conceito de plataforma soberana para detecção de intrusão, modelagem de ameaças e correlação forense com disciplina técnica mais madura.",
     businessImpact:
-      "Importa para empresas que operam dados sensiveis, infraestrutura critica, multiplos acessos, ambientes distribuidos ou qualquer contexto onde incidente vira impacto financeiro e reputacional.",
+      "Importa para empresas que operam dados sensíveis, infraestrutura crítica, múltiplos acessos, ambientes distribuídos ou qualquer contexto em que incidente vira impacto financeiro e reputacional.",
     implementation:
-      "Pode ser estruturado com Zero Trust, mapeamento de ameacas por MITRE ATT&CK, trilhas auditaveis, correlacao de eventos e preparo para resposta a incidente com mais defensabilidade.",
+      "Pode ser estruturado com Zero Trust, mapeamento de ameaças por MITRE ATT&CK, trilhas auditáveis, correlação de eventos e preparo para resposta a incidente com mais defensabilidade.",
     outcome:
-      "O cliente percebe que seguranca seria nao e plugin. E arquitetura, processo e telemetria trabalhando juntos para reduzir superficie de risco.",
+      "O cliente percebe que segurança séria não é plugin. É arquitetura, processo e telemetria trabalhando juntos para reduzir superfície de risco.",
   },
   {
     title: "OpRisk Intelligence",
@@ -106,13 +106,13 @@ const projects = [
     icon: Database,
     href: "https://github.com/maykonlincolnusa/Barings-Bank-collapse",
     summary:
-      "Projeto orientado a risco operacional para reconstruir falhas de controle, comportamento anomalo e exposicao estrutural em ambientes financeiros.",
+      "Projeto orientado a risco operacional para reconstruir falhas de controle, comportamento anômalo e exposição estrutural em ambientes financeiros.",
     businessImpact:
-      "Pode ser aplicado em instituicoes financeiras, auditoria interna, compliance, seguradoras e empresas que precisam identificar onde processos, pessoas e sistemas se tornam fonte de prejuizo.",
+      "Pode ser aplicado em instituições financeiras, auditoria interna, compliance, seguradoras e empresas que precisam identificar onde processos, pessoas e sistemas se tornam fonte de prejuízo.",
     implementation:
-      "A logica pode ser levada para bases de eventos, classificacao de ocorrencias, cenarios de perda, indicadores preventivos e inteligencia executiva para areas de risco e controle.",
+      "A lógica pode ser levada para bases de eventos, classificação de ocorrências, cenários de perda, indicadores preventivos e inteligência executiva para áreas de risco e controle.",
     outcome:
-      "Nao e apenas analise historica. E uma forma de transformar erro operacional em sinal precoce para governanca, prevencao e priorizacao executiva.",
+      "Não é apenas análise histórica. É uma forma de transformar erro operacional em sinal precoce para governança, prevenção e priorização executiva.",
   },
 ];
 
@@ -120,17 +120,17 @@ const referenceBlocks = [
   {
     title: "Streaming, dados e score em tempo real",
     desc:
-      "Arquiteturas de fraude e risco ganham maturidade quando a empresa deixa de depender de lote e passa a capturar eventos continuamente, integrando ingestao, transformacao, analytics e decisao.",
+      "Arquiteturas de fraude e risco ganham maturidade quando a empresa deixa de depender de lote e passa a capturar eventos continuamente, integrando ingestão, transformação, analytics e decisão.",
   },
   {
-    title: "Zero Trust e seguranca orientada a recurso",
+    title: "Zero Trust e segurança orientada a recurso",
     desc:
-      "Em ambientes distribuidos, o foco deixa de ser a rede como perimetro e passa a ser o recurso, a identidade, o dispositivo e a sessao. Isso muda a qualidade da protecao.",
+      "Em ambientes distribuídos, o foco deixa de ser a rede como perímetro e passa a ser o recurso, a identidade, o dispositivo e a sessão. Isso muda a qualidade da proteção.",
   },
   {
-    title: "Orquestracao multiagente com contexto certo",
+    title: "Orquestração multiagente com contexto certo",
     desc:
-      "Projetos de IA ficam mais uteis quando agentes especializados recebem contexto delimitado, tarefas claras e uma camada de orquestracao que evita ruido e improviso.",
+      "Projetos de IA ficam mais úteis quando agentes especializados recebem contexto delimitado, tarefas claras e uma camada de orquestração que evita ruído e improviso.",
   },
 ];
 
@@ -139,7 +139,7 @@ export function Blog() {
     <div className="min-h-screen bg-background px-4 pb-10 pt-28 text-foreground selection:bg-white/10 lg:px-6">
       <SEO
         title="Projetos Aplicados"
-        description="Projetos ja realizados, explicados pelo impacto que podem gerar em seguranca, operacao, IA, risco, integracoes e escala para empresas de diferentes setores."
+        description="Projetos já realizados, explicados pelo impacto que podem gerar em segurança, operação, IA, risco, integrações e escala para empresas de diferentes setores."
       />
 
       <section className="mx-auto max-w-7xl">
@@ -166,15 +166,15 @@ export function Blog() {
               </motion.h1>
 
               <motion.p variants={fadeUp} className="mt-6 max-w-3xl text-lg leading-8 text-white/[0.68] md:text-xl">
-                Esta pagina foi redesenhada para falar com decisores. Cada projeto abaixo mostra uma entrega ja publicada
-                e traduz o impacto disso para empresas que precisam reduzir risco, integrar operacao, acelerar decisao
+                Esta página foi redesenhada para falar com decisores. Cada projeto abaixo mostra uma entrega já publicada
+                e traduz o impacto disso para empresas que precisam reduzir risco, integrar operação, acelerar decisão
                 e crescer com mais controle.
               </motion.p>
 
               <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <Button size="lg" className="h-14 px-8" asChild>
                   <Link to="/contato">
-                    Quero diagnosticar meu cenario
+                    Quero diagnosticar meu cenário
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>
@@ -194,20 +194,20 @@ export function Blog() {
               className="grid gap-4"
             >
               <div className="surface-panel-strong rounded-[2.5rem] p-6 lg:p-7">
-                <div className="text-[11px] uppercase tracking-[0.22em] text-white/[0.4]">Como essa pagina deve ser lida</div>
+                <div className="text-[11px] uppercase tracking-[0.22em] text-white/[0.4]">Como essa página deve ser lida</div>
                 <div className="mt-6 grid gap-4">
                   {[
                     {
                       title: "Projeto",
-                      desc: "O que foi construido e em qual logica operacional ele se apoia.",
+                      desc: "O que foi construído e em qual lógica operacional ele se apoia.",
                     },
                     {
                       title: "Impacto para a empresa",
                       desc: "Que tipo de problema o sistema ajuda a resolver no mundo real.",
                     },
                     {
-                      title: "Implementacao aplicavel",
-                      desc: "Como a mesma base pode ser adaptada ao contexto do proximo cliente.",
+                      title: "Implementação aplicável",
+                      desc: "Como a mesma base pode ser adaptada ao contexto do próximo cliente.",
                     },
                   ].map((item) => (
                     <div key={item.title} className="rounded-[1.8rem] border border-white/10 bg-white/[0.04] px-5 py-4">
@@ -231,11 +231,11 @@ export function Blog() {
 
       <section className="mx-auto mt-24 max-w-7xl">
         <div className="mb-10 max-w-3xl">
-          <div className="section-kicker">Projetos com aplicacao empresarial</div>
-          <h2 className="section-heading mt-4">Cada projeto abaixo conecta problema real, arquitetura valida e impacto direto para a operacao.</h2>
+          <div className="section-kicker">Projetos com aplicação empresarial</div>
+          <h2 className="section-heading mt-4">Cada projeto abaixo conecta problema real, arquitetura válida e impacto direto para a operação.</h2>
           <p className="section-copy mt-5">
-            Em vez de explicar o que e um blog, esta pagina organiza projetos ja realizados e mostra como a mesma logica
-            pode ser levada para financeiro, franquias, seguranca, operacoes distribuidas, dados e automacao.
+            Em vez de explicar o que é um blog, esta página organiza projetos já realizados e mostra como a mesma lógica
+            pode ser levada para financeiro, franquias, segurança, operações distribuídas, dados e automação.
           </p>
         </div>
 
@@ -296,11 +296,11 @@ export function Blog() {
 
       <section className="mx-auto mt-24 max-w-7xl">
         <div className="mb-10 max-w-3xl">
-          <div className="section-kicker">Arquiteturas por tras dos projetos</div>
-          <h2 className="section-heading mt-4">Os mesmos fundamentos usados em operacoes maduras podem ser adaptados ao contexto da sua empresa.</h2>
+          <div className="section-kicker">Arquiteturas por trás dos projetos</div>
+          <h2 className="section-heading mt-4">Os mesmos fundamentos usados em operações maduras podem ser adaptados ao contexto da sua empresa.</h2>
           <p className="section-copy mt-5">
-            O valor dos projetos nao esta so na ideia. Esta em usar padroes reconhecidos de seguranca, dados e IA para
-            transformar um caso especifico em sistema replicavel para outro negocio.
+            O valor dos projetos não está só na ideia. Está em usar padrões reconhecidos de segurança, dados e IA para
+            transformar um caso específico em sistema replicável para outro negócio.
           </p>
         </div>
 
@@ -330,18 +330,18 @@ export function Blog() {
             className="surface-panel-strong rounded-[2.75rem] px-6 py-8 lg:px-8 lg:py-10"
           >
             <div className="section-kicker">O que isso prova</div>
-            <h2 className="section-heading mt-4">Voce nao esta vendo ideias soltas. Esta vendo capacidade tecnica aplicada a problemas que geram custo, risco e atraso.</h2>
+            <h2 className="section-heading mt-4">Você não está vendo ideias soltas. Está vendo capacidade técnica aplicada a problemas que geram custo, risco e atraso.</h2>
             <p className="section-copy mt-5 max-w-xl">
-              O visitante desta pagina quer responder tres perguntas: voce ja construiu algo relevante, isso se conecta
-              ao problema dele e existe maturidade tecnica suficiente para implementar com seriedade? A copy agora foi
+              O visitante desta página quer responder três perguntas: você já construiu algo relevante, isso se conecta
+              ao problema dele e existe maturidade técnica suficiente para implementar com seriedade? A copy agora foi
               desenhada para responder exatamente isso.
             </p>
 
             <div className="mt-8 space-y-4">
               {[
-                "Menos abstracao e mais traducao de impacto em caixa, risco, eficiencia e controle.",
-                "Menos explicacao sobre formato de conteudo e mais explicacao sobre aplicabilidade do projeto.",
-                "Menos curiosidade tecnica solta e mais conexao entre prova publica, dor operacional e contratacao.",
+                "Menos abstração e mais tradução de impacto em caixa, risco, eficiência e controle.",
+                "Menos explicação sobre formato de conteúdo e mais explicação sobre aplicabilidade do projeto.",
+                "Menos curiosidade técnica solta e mais conexão entre prova pública, dor operacional e contratação.",
               ].map((item) => (
                 <div key={item} className="rounded-[1.7rem] border border-white/10 bg-white/[0.04] px-5 py-4 text-sm leading-7 text-white/[0.62]">
                   {item}
@@ -357,24 +357,24 @@ export function Blog() {
             transition={{ delay: 0.08 }}
             className="surface-panel rounded-[2.75rem] px-6 py-8 lg:px-8 lg:py-10"
           >
-            <div className="text-[11px] uppercase tracking-[0.22em] text-white/[0.38]">Decisao com mais clareza</div>
-            <h3 className="mt-4 text-3xl font-medium tracking-[-0.04em] text-white">Quando a empresa enxerga o impacto do sistema, a conversa sai da curiosidade e entra na contratacao.</h3>
+            <div className="text-[11px] uppercase tracking-[0.22em] text-white/[0.38]">Decisão com mais clareza</div>
+            <h3 className="mt-4 text-3xl font-medium tracking-[-0.04em] text-white">Quando a empresa enxerga o impacto do sistema, a conversa sai da curiosidade e entra na contratação.</h3>
             <p className="mt-5 text-sm leading-7 text-white/[0.58]">
-              O papel desta pagina e encurtar o caminho entre interesse e decisao. Ela mostra que os sistemas nao sao
-              hipoteticos e que existe repertorio tecnico para adaptar o que ja foi construido ao contexto do proximo cliente.
+              O papel desta página é encurtar o caminho entre interesse e decisão. Ela mostra que os sistemas não são
+              hipotéticos e que existe repertório técnico para adaptar o que já foi construído ao contexto do próximo cliente.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-[1.8rem] border border-white/10 bg-white/[0.04] px-5 py-5">
-                <div className="text-[10px] uppercase tracking-[0.22em] text-white/[0.34]">Se o problema e risco</div>
+                <div className="text-[10px] uppercase tracking-[0.22em] text-white/[0.34]">Se o problema é risco</div>
                 <p className="mt-3 text-sm leading-7 text-white/[0.62]">
-                  A conversa vai para seguranca, fraude, monitoramento e governanca.
+                  A conversa vai para segurança, fraude, monitoramento e governança.
                 </p>
               </div>
               <div className="rounded-[1.8rem] border border-white/10 bg-white/[0.04] px-5 py-5">
-                <div className="text-[10px] uppercase tracking-[0.22em] text-white/[0.34]">Se o problema e escala</div>
+                <div className="text-[10px] uppercase tracking-[0.22em] text-white/[0.34]">Se o problema é escala</div>
                 <p className="mt-3 text-sm leading-7 text-white/[0.62]">
-                  A conversa vai para integracao, plataforma, IA aplicada e operacao multiunidade.
+                  A conversa vai para integração, plataforma, IA aplicada e operação multiunidade.
                 </p>
               </div>
             </div>
@@ -382,7 +382,7 @@ export function Blog() {
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button size="lg" className="h-14 px-8" asChild>
                 <Link to="/contato">
-                  Agendar conversa estrategica
+                  Agendar conversa estratégica
                   <ArrowRight className="size-4" />
                 </Link>
               </Button>

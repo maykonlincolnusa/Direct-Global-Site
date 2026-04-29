@@ -211,29 +211,6 @@
         background: rgba(0, 0, 0, 0.2);
       }
 
-      .headline-controls {
-        margin-top: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .variant-btn {
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        border-radius: 999px;
-        padding: 8px 12px;
-        background: rgba(255, 255, 255, 0.03);
-        color: #d9e5ef;
-        font: 600 0.81rem "Source Sans 3", sans-serif;
-        cursor: pointer;
-      }
-
-      .variant-btn.active {
-        border-color: transparent;
-        color: #321700;
-        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-      }
-
       .hero-actions {
         margin-top: 22px;
         display: flex;
@@ -606,16 +583,10 @@
       }
 
       .hero-features li,
-      .timeline div,
-      .variant-btn {
+      .timeline div {
         background: rgba(255, 255, 255, 0.045);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 18px;
-      }
-
-      .variant-btn.active {
-        background: rgba(247, 244, 255, 0.94);
-        color: #09040f;
       }
 
       .price {
@@ -704,7 +675,7 @@
         <div class="container hero-layout">
           <article class="hero-main">
             <span class="tag">Oferta Maior • 8 semanas</span>
-            <h1 id="headline">Construa um sistema de agentes inteligentes que opera com escala, previsibilidade e controle.</h1>
+            <h1 id="headline">Sistema de Agentes Inteligentes Customizado</h1>
             <p>
               Desenvolvimento completo de arquitetura multi-agente customizada para seu contexto: dados, processos,
               integrações e deploy. Projeto técnico para empresas que precisam de automação robusta e mensurável.
@@ -714,7 +685,6 @@
               <li><strong>Base de dados estruturada:</strong> pipelines para alimentar decisões de forma contínua.</li>
               <li><strong>Entrega executável:</strong> integração com sistemas existentes e estratégia de implantação.</li>
             </ul>
-            <div class="headline-controls" id="headlineControls"></div>
             <div class="hero-actions">
               <a class="btn btn-main" href="#formulario">Quero meu sistema customizado</a>
               <a class="btn btn-ghost" href="#projetos">Ver arquiteturas</a>
@@ -983,42 +953,6 @@
     </footer>
 
     <script>
-      const headlines = [
-        "Construa um sistema de agentes inteligentes que opera com escala, previsibilidade e controle.",
-        "Transforme processos críticos em fluxos autônomos orientados por dados e decisão técnica.",
-        "Automação empresarial de alto impacto: múltiplos agentes, integração real e deploy executável.",
-        "Substitua retrabalho por inteligência operacional contínua em 8 semanas de implementação."
-      ];
-
-      const headlineEl = document.getElementById("headline");
-      const controls = document.getElementById("headlineControls");
-      let active = 0;
-
-      function buildControls() {
-        headlines.forEach((_, i) => {
-          const button = document.createElement("button");
-          button.type = "button";
-          button.className = `variant-btn ${i === 0 ? "active" : ""}`;
-          button.textContent = `Headline ${i + 1}`;
-          button.addEventListener("click", () => setHeadline(i));
-          controls.appendChild(button);
-        });
-      }
-
-      function setHeadline(index) {
-        active = index;
-        headlineEl.textContent = headlines[index];
-        document.querySelectorAll(".variant-btn").forEach((btn, i) => {
-          btn.classList.toggle("active", i === index);
-        });
-      }
-
-      buildControls();
-
-      setInterval(() => {
-        setHeadline((active + 1) % headlines.length);
-      }, 6200);
-
       const form = document.getElementById("leadForm");
       const feedback = document.getElementById("feedback");
 
